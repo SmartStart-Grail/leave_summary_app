@@ -8,11 +8,12 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
 import os
-
 from django.core.wsgi import get_wsgi_application
 
-settings_module = 'leave_summary_app.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'leave_summary_app.settings'
+settings_module = os.environ.get('DJANGO_SETTINGS_MODULE', 'leave_summary_app.settings')
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
+
+print("Using settings module:", settings_module)
 
 application = get_wsgi_application()
