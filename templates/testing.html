@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        .body {
+  font-size: 15px;
+}
+
+.card-holder {
+  margin: 2em 0;
+}
+
+.card {
+  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
+  font-size: 3em;
+  font-weight: 800;
+  height: 4em;
+  width: 64em;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  display: table-cell;
+  vertical-align: middle;
+  letter-spacing: -2px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card .subtle {
+  color: #000;
+  font-size: 0.5em;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.card i {
+  font-size: 3em;
+}
+
+.bg-gold {
+  background: -webkit-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: -o-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: -moz-linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+}
+
+.bg-news {
+  background: -webkit-linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+  background: -o-linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+  background: -moz-linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+  background: linear-gradient(70deg, #ff6464 40%, #5ac8fa 40%);
+}
+
+.bg-germany {
+    color: #fff;
+    background: -webkit-linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), -webkit-linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+    background: -o-linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), -o-linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+    background: -moz-linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), -moz-linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+    background: linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+}
+
+.bg-aurora {
+    color: #fff;
+    background: -webkit-linear-gradient(-70deg, #fa7c30 30%, rgba(0, 0, 0, 0) 30%), url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia21421-cr.jpg');
+    background: -o-linear-gradient(-70deg, #fa7c30 30%, rgba(0, 0, 0, 0) 30%), url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia21421-cr.jpg');
+    background: -moz-linear-gradient(-70deg, #fa7c30 30%, rgba(0, 0, 0, 0) 30%), url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia21421-cr.jpg');
+    background: linear-gradient(-70deg, #fa7c30 30%, rgba(0, 0, 0, 0) 30%), url('https://www.nasa.gov/sites/default/files/thumbnails/image/pia21421-cr.jpg');
+  background-size: cover;
+  background-position: 50% 21%;
+  text-align: right;
+}
+
+.bg-germany {
+    color: #fff;
+    background: -webkit-linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), -webkit-linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+    background: -o-linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), -o-linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+    background: -moz-linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), -moz-linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+    background: linear-gradient(110deg, #000 33%, rgba(0, 0, 0, 0) 33%), linear-gradient(110deg, #dd0000 66%, #ffc608 66%);
+}
+
+.bg-purple {
+    color: #fff;
+    background: -webkit-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -webkit-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
+    background: -o-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -o-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
+    background: -moz-linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), -moz-radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
+    background: linear-gradient(110deg, #a60af3 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, #7a00cc 70%, #c03fff 70%);
+}
+
+.bg-spring {
+    background: -webkit-linear-gradient(70deg, #fff810  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(30deg, #63e89e 60%, #ff7ee3 60%);
+    background: -o-linear-gradient(70deg, #fff810  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(30deg, #63e89e 60%, #ff7ee3 60%);
+    background: -moz-linear-gradient(70deg, #fff810  30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(30deg, #63e89e 60%, #ff7ee3 60%);
+    background: linear-gradient(70deg, #fff810  30%, rgba(0,0,0,0) 30%), linear-gradient(30deg, #63e89e 60%, #ff7ee3 60%);
+}
+.element {
+            width: 300px; /* Adjust the width as needed */
+            height: 200px; /* Adjust the height as needed */
+            /* background:
+                linear-gradient(#030e4d, #030e4d) left, 
+                linear-gradient(#002060 , #002060 ) right; */
+            /* background:  #030e4d left,  #002060 right; */
+
+            /* background :linear-gradient(to right, #030e4d 85%, #002060); */
+            background: linear-gradient(to right, rgb(3,15,82)50%,rgb(0,32,96) );
+            /* background-size: 50% 100%; */
+            background-repeat: no-repeat;
+        }
+
+    .button-container{
+        background:linear-gradient(to top right,#530095 70%,#fff 1%);
+
+        height: 110px;
+        width: 190px;
+        /* border:1px solid black; */
+
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-parent{
+        background-color: #fff;
+        height: 70%;
+        width: 80%;
+        outline: 1.5px solid #530095;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        
+    }
+
+    .icon-color{
+        font-size: 30px;
+        color:#530095;
+    }
+
+    .text-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text{
+        color:black;
+        font-size: 15px;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="card-holder">
+        <div class="card bg-gold">
+          New York is Sunny today at 60°.
+        </div>
+    </div> -->
+    <!-- <div class="element">
+    
+     
+    </div> -->
+
+    <!-- Button Design -->
+    <div class="container">
+        <div class="button-container d-flex justify-content-center">
+            <div class="button-parent">
+                <div class="icon-container">
+                    <i class="fa fa-bar-chart icon-color" aria-hidden="true" ></i>
+
+                </div>
+
+                <div class="text-container">
+                    <div class="first-block">
+                        <span class="text">Headcount</span>
+
+                    </div>
+                    <div class="second-block">
+                        <span class="text">Summary</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Button Design -->
+
+
+
+
+
+
+
+      <!-- <div class="card-holder">
+        <div class="card bg-news">
+          Breaking News <br/> 
+          Apple launches the new iPhone.
+        </div>
+      </div>
+
+    
+      <div class="card-holder">
+        <div class="card bg-germany">
+           Germany! Germany! Germany!!
+        </div>
+      </div>
+      <div class="card-holder">
+        <div class="card bg-aurora">
+          New Planets<br/>Discovered
+        </div>
+      </div>
+      <div class="card-holder">
+        <div class="card bg-purple">
+          The refreshing Black Currant Ice Cream is a wonderful treat.
+        </div>
+      </div>
+      <div class="card-holder">
+        <div class="card bg-spring">
+         Keep Calm and Add Some Colors.
+        </div>
+      </div> -->
+      
+      
+    
+</body>
+</html>

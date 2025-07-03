@@ -1,0 +1,309 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block css%}
+<!-- <link rel="stylesheet" href="{%static 'css/login.css' %}" /> -->
+<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/buttons/1.4.0/css/buttons.dataTables.min.css" />
+<link rel="stylesheet" href="{%static 'css/home-page.css'%}"/>
+<link rel="stylesheet" href="{%static 'css/datatables.css'%}"/>
+
+
+<style>
+    * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    /* html{
+        height: 100% !important;
+    }
+    body{
+        height: 100%;
+    } */
+
+    html, body {
+  height: 100%;
+  margin: 0;
+  /* overflow: hidden; Hides overflowed content */
+}
+    .main-container{
+        min-height: 150vh !important;
+    }
+
+.header-container{
+    height: 6.5%;
+}
+
+.sidebar-container{
+    height: 105% !important;
+}
+.sidebar-body-container {
+    height: 90% !important;
+}
+
+/* @media  screen and (max-height: 600px) {
+} */
+
+/* @media only screen and (min-height: 700px){
+    .main-container{
+        height: 120% !important;
+    }
+
+} */
+</style>
+{%endblock%}
+{%block title%}
+<title>Home Page</title>
+{%endblock%}
+
+{%block body%}
+<div class="home-page-main-container w-100 h-100 pt-2 ">
+    <div class="d-flex justify-content-center  button-container p-2">
+        <button class="btn btn-md   btn-filter fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-funnel"></i>Department / Worklocation Filter</button>
+        <!-- <button class="btn btn-md   btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-funnel"></i>Worklocation Filter</button> -->
+
+        <button class="btn btn-sm   btn-filter buttons-home fw-bold" id="prev-btn"><i class="bi bi-caret-left"></i> Previous 3 Weeks</button>
+        <button class="btn btn-md   btn-filter fw-bold"  id="next-btn">Next 3 Weeks<i class="bi bi-caret-right"></i></button>
+    </div>
+
+    <div class="home-page-container d-flex justify-content-between">
+        <div class="table-container d-flex flex-column w-50 h-100  p-1  ps-4">
+            <div class="table-container-parent d-flex flex-column h-100">
+                <div class="table-container-header-container">
+                    <h6 class="table-container-header-text">Employees on leave - Next 3 weeks</h6>
+
+                </div>
+                <div class="table-container-child p-2 border border-1 w-100 " style="height: 90%;" id="leave-table-id">
+                    <!-- <div id="chart-loaders" class="chart-loader" style="display: none; text-align: center; padding: 20px; align-items: center;">
+                        <img src="/static/images/Iphone-spinner-2.gif" alt="Loading..." width="50">
+                    </div> -->
+                    <table id="myTable" class="display table table-bordered compact table-class">
+                        <thead>
+                            <tr class="header-class">
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in leave_data%}
+                                <tr>
+                                    <td>{{data.employee}}</td>
+                                    <td>{{data.employee.job_title}}</td>
+                                    <td>{{data.start_date|date:'m/d/Y'}}</td>
+                                    <td>{{data.end_date|date:'m/d/Y'}}</td>
+                                </tr>
+                            {%endfor%}
+
+                            
+                            
+                           
+
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+                <span class="pt-2 fw-bold text-danger" style="font-size: .7rem;">*The data updated on the portal is not real-time and may be up to one week old.</span>
+               
+
+            </div>
+
+        </div>
+
+        <div class="graph-container w-50 h-100 d-flex flex-column">
+            <div class="holiday-newtweek-header-container  d-flex justify-content-between align-items-center">
+                <h6 class="table-container-header-text">Resources at Work – Next 3 Weeks</h6>
+                <!-- <button class="btn btn-sm   btn-filter  " id="prev-btn"><i class="bi bi-caret-left"></i> Previous</button>
+                <button class="btn btn-md   btn-filter  "  id="next-btn">Next <i class="bi bi-caret-right"></i></button>
+                <button class="btn btn-md   btn-filter  " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-funnel"></i> Filters</button> -->
+
+            </div>
+            <input type="hidden" id="previous-date-value" value="">
+            <input type="hidden" id="next-date-value" value="{{next_week_date}}">
+
+            <div class="chart-class border border-1 p-2 d-flex justify-content-center" id="chart-container" style="position: relative;align-items: center;">
+                <div id="chart-loader" style="display: none; text-align: center; padding: 20px; align-items: center;">
+                    <img src="/static/images/Iphone-spinner-2.gif" alt="Loading..." width="50">
+                </div>
+                <canvas id="myChart" class="chart-class-child" width="0" height="0" ></canvas>
+            </div>
+
+            <!-- <div class="indicator-conatiner d-flex  pt-2">
+                <div class="holiday-indicator d-flex">
+                    <div class="box-indicator"></div><span class="holiday-indicator-text">Public Holiday</span>
+
+                </div>
+
+                <div class="holiday-indicator d-flex">
+                    <div class="box-indicator color-ind"></div> <span class="holiday-indicator-text">10 and more employees on leave</span>
+
+                </div>
+
+                <div class="holiday-indicator d-flex">
+                    <div class="box-indicator color-avail"></div>
+
+                        <span class="holiday-indicator-text">Available employees</span>
+
+
+                </div>
+
+                <div class="holiday-indicator d-flex">
+                    <div class="box-indicator color-absent"> </div>
+                        <p class="holiday-indicator-text ">On leave employees</p>
+
+                </div>
+
+                
+                
+                
+
+            </div> -->
+
+            <div class="holiday-nextweek-container pt-1 d-flex flex-column h-50">
+                <div class="holiday-newtweek-header-container">
+                    <h6 class="table-container-header-text">Global holidays - Next 3 weeks</h6>
+
+                </div>
+
+                <div class="table-container-child child-height p-2 border border-1 w-100 " id="holiday-table">
+                    <table id="holidayTable" class="display table table-bordered compact table-class">
+                        <thead>
+                            <tr class="header-class">
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Country</th>
+                                <th>Region</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for data in holiday_data %}
+                            <tr>
+                                <td>{{data.start_date|date:'m/d/Y'}}</td>
+                                <td>{{data.end_date|date:'m/d/Y'}}</td>
+                                <td>{{data.country}}</td>
+                                <td>{%if data.country.city%}{{data.country.city}} {%endif%}</td>
+                            </tr>
+                            {% endfor %}
+                                                       
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" id="filter-form-home-id">
+        <form method="post" id="filter-form-home" >{%csrf_token%}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="apply-filter">Apply Filters</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-filter-btn"></button>
+                </div>
+
+                <div class="modal-body" id="filter-id">
+                    <input type="hidden" id="sup-select">
+                    <div class="filter-modal-class d-flex flex-column">
+
+                        <!-- Supervisor Filter -->
+                        <!-- <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Supervisor</p>
+                            </div>
+                            <div class="filter-select-container border mar">
+                                <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="supervisor-select">
+                                    {% for data in emp_supervisor %}
+                                    <option value="{{data.supervisor.id}}">{{data.supervisor.first_name}} {{data.supervisor.last_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div> -->
+
+
+                        <!-- Department Filter -->
+                        <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Department</p>
+                            </div>
+                            <div class="filter-select-container border mar">
+                                <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="department-select" id="department-select">
+                                    {% for data in dept_data %}
+                                    <option value="{{data.id}}">{{data.dept_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2"><p class="filter-name-text">Work Location</p></div>
+                            <div class="filter-select-container border ">
+                                <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="location-select" id="location-select" >
+                                    {%for data in work_location%}
+                                    <option value="{{data}}">{{data}}</option>
+                                    {%endfor%}
+                                </select>
+
+                            </div>
+
+                            
+
+                        </div>
+
+                        <!-- Employee Name Filter -->
+                        <!-- <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Employee name</p>
+                            </div>
+                            <div class="filter-select-container border">
+                                <select class="form-control selectpicker employee-select em-select" multiple data-live-search="true" size="5" name="members-select" id="emp-select">
+                                    {% for data in emp_data %}
+                                    <option value="{{data.id}}">{{data.first_name}} {{data.last_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-class btn-filt" id="ap" disabled>Apply Filter</button>
+                    <button type="button" class="btn btn-class btn-filt" id="cf" disabled>Clear Filter</button>
+                    <!-- <button type="button" class="btn btn-class" id="refresh">Reload</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{%endblock%}
+
+
+{%block js%}
+<!-- <sricpt src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<script src="{%static 'js/datatables.js'%}"></script>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script> -->
+<script src="{%static 'js/chart.js'%}"></script>
+<script src="{%static 'js/home-page.js'%}"></script>
+{%endblock%}

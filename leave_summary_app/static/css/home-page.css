@@ -1,0 +1,84 @@
+.home-page-container{
+    width: 99%;
+    height: 98%;
+    
+}
+
+.table-container-header-text{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+.header-class{
+    background: var(--integron-color-primary-s1);
+    color: #fff;
+    font-size: 0.8rem !important;}
+
+
+.table-class{
+    font-size: 0.8rem;
+    width: 100% !important;
+}
+
+
+.dt-layout-row{
+
+    font-size: 0.8rem;
+
+}
+
+.table-container-child{
+    
+    /* height: 100%; */
+    height: auto;
+}
+
+
+.home-page-container{
+    gap:2rem
+}
+
+
+
+.chart-class{
+    height: 50%;
+}
+.chart-class-child{
+    height: 98% !important;
+    width: 100% !important;
+}
+
+
+.indicator-conatiner{
+    gap:20px
+}
+.holiday-indicator-text{
+    font-size: 0.7rem;
+}
+
+.box-indicator{
+    height: 15px;
+    width: 15px;
+    border:1px solid lightgray;
+    background-color:rgb(192,0,0) ;
+}
+
+.color-ind{
+    background-color:rgb(255, 70, 35) ;
+}
+
+.holiday-indicator{
+    gap:3px
+}
+
+.table-container{
+    gap:4rem
+}
+/* .table-container-parent{
+    height: 60%;
+}
+
+.holiday-nextweek-container{
+    height: 40%;
+} */

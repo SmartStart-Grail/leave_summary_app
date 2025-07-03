@@ -1,0 +1,39 @@
+<form method="post"  id="new-project-form">{%csrf_token%}
+<div class="existing-project-name-container d-flex justify-content-between">
+    <p class="existing-project-text pt-1">Client Name</p>
+    <div class="input-container col-auto">
+        <input type="text" class="form-control input-text" placeholder="Enter Client Name" aria-label="Username" aria-describedby="basic-addon1" id="new-project-name" name="new-project-name">
+
+    </div>
+
+</div>
+
+<div class="existing-project-name-container d-flex justify-content-between">
+    <p class="existing-project-text pt-1">Assigned Members</p>
+    <div class="input-container col-auto h-75" id="member-id">
+        <!-- <select class="form-select input-text   selectpicker w-100 h-100" multiple data-live-search="true" size="2" name="new-emp-select" id="new-emp-select" >
+            <option value="" selected disabled>Select Project</option>
+            {%for type in employee_data%}                                
+            <option value="{{type.id}}">{{type.first_name}} {{type.last_name}}</option>
+            {%endfor%}
+        </select> -->
+        <select class="form-control selectpicker border " multiple data-live-search="true" size="5" name="new-emp-select" id="new-emp-select" required >
+            <option value="" default>Select Client</option>
+            {%for type in employee_data%} 
+            <option value="{{type.id}}">{{type.first_name}} {{type.last_name}}</option>
+            {%endfor%}
+        </select>
+
+    </div>
+
+</div>
+
+<div class="existing-project-name-container  pt-3">
+    <div class="input-container col-auto w-100 d-flex justify-content-end">
+        <button class="btn btn-class btn-sm  rounded-pill width-btn" id="add-btn">Add Client</button>
+        <!-- <button type="submit" class="btn btn-class btn-sm btn-cancel rounded-pill width-btn" id="add-btn">Add Project</button> -->
+
+    </div>
+
+</div>
+</form>

@@ -1,0 +1,20 @@
+:root {
+    --integron-color-primary: #230b54;
+    --integron-color-primary-s1: #530095;
+    --integron-color-primary-s2: #fff;
+    --integron-color-accent: #530095;
+    --integron-color-accent-s1: #aa50f3;
+    --integron-color-accent-s2: #530095;
+    --integron-color-background: #FFFFFF;
+    --integron-color-font: #fff;
+    --integron-color-inside-sep: #000000;
+    --integron-color-table-header: #aa50f3;
+    --integron-color-font-green: #aa50f3;
+    --integron-color-modal-background: #f2f2f2;
+    --integron-color-modal-border: #d1cbcb;
+    --integron-color-button-background: #530095;
+    --integron-color-button-font-color: #ffffff;
+    --integron-color-button: #FF5634;
+    --integron-color-table-header-new: #9A1B15;
+
+}

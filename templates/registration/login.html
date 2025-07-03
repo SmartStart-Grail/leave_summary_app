@@ -1,0 +1,117 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{%static 'bootstrap-icons/bootstrap-icons.css'%}"/>
+    <link rel="stylesheet" href="{%static 'boxicons/css/boxicons.min.css'%}"/>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+    <link rel="stylesheet" href="{%static 'css/variable.css' %}" >
+    <link rel="stylesheet" href="{%static 'css/style.css'%}"/>
+    <link rel="stylesheet" href="{%static 'css/login.css'%}"/>
+    
+    <title>Login</title>
+</head>
+<body>
+    <div class="main-container ">
+        <div class="header-container w-100 d-flex justify-content-between p-3">
+          <div class="header-brand-container mt-5">
+            <img src="{%static 'images/brand.png'%}" width="70" height="70" alt="">
+            
+          </div>
+    
+    
+    
+          <div class="header-username-container">
+            <div class="username-text-container d-flex">
+              <span class="username-text text-white">escalent</span>
+            </div>  
+          </div>
+    
+    
+        </div>
+        <div class="sidebar-body-container d-flex">
+            <div class="sidebar-container">
+                
+            </div>
+    
+          <div class="body-container d-flex">
+            <div class="username-password-container">
+                <div class="username-password-parent d-flex flex-column ps-5">
+                    <div class="welcome-header-container">
+                        <p class="welcome-header-text text-white"> Hello ! Welcome back.</p>
+
+                    </div>
+                    <form method="post">{%csrf_token%}
+                        <div class="username-password-child-container d-flex flex-column">
+                            <div class="member-login-container">
+                                <p class="member-login-text">Member Login</p>
+
+                            </div>
+
+                            <div class="username-password d-flex flex-column">
+                                <div class="username-passwrd-container d-flex flex-column">
+                                    <div class="username-container ">
+                                        <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+                                        <input type="text" class="username no-autofill-bkg" placeholder="Username" name="username" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+
+                                    </div>
+
+                                    <div class="password-container ">
+                                        <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+                                        <input type="password" class="password" placeholder="Password" name="password" id="password" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                                        <div  class="show-password-container pt-2">
+                                        <input class="" type="checkbox" onclick="myfunction()"><span class="show-password ps-1">Show Password</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="forget-password-container d-flex justify-content-end">
+                                    <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+                                    <!-- <p class="forget-password-text text-white">Forget Password ?</p> -->
+
+                                </div>
+
+                            </div>
+
+                            <div class="signin-button-container w-100">
+                                <button type="submit" class="btn btn-lg btn-danger w-25 btn-outline-light sign-in-btn">SIGN IN</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+            <div class="image-parent-container d-flex justify-content-end">
+                <div class="image-container d-flex justify-content-center flex-column">
+                    <div class="image-container-block">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    
+          </div>
+    
+        </div>
+    
+    
+          
+      
+      </div>
+    
+    <script src="{%static 'js/jquery-lite.js'%}"></script>
+    <script src="{%static 'js/popper.min.js' %}"></script>
+    <script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{%static 'js/login.js' %}"></script>
+</body>
+</html>

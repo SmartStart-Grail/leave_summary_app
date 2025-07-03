@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holidays</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" id="upload-file-form" >{%csrf_token%}
+            <input type="file" name="holiday_file" id="holiday_file">
+            <button type="submit">submit</button>
+
+        </form>
+
+    </div>
+</body>
+</html>

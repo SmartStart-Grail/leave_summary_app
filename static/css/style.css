@@ -1,0 +1,204 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: "Open Sans";
+    max-width: 100%;
+}
+
+.sidebar-container{
+    background-color: rgb(0,32,96);
+    height: 100%;
+    width: 4%;
+}
+
+.sidebar-body-container{
+    height: 92%;
+    /* height: au; */
+    width: 100%;
+
+}
+
+.header-username-container{
+    gap:1px;
+    
+}
+
+.username-icon{
+    font-size: 1.5rem;
+}
+
+.username-text{
+    font-size: .7rem;
+}
+
+
+.username-text-container{
+    align-items: center;
+}
+/* body{
+    height: 100%;
+    width: 100%;
+} */
+
+.main-container{
+    height: 100vh;
+    /* width: 100vw; */
+    /* background-color: rgb(0,32,96); */
+    
+}
+
+.header-text{
+    font-family: 'Open Sans';
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+
+.header-container{
+    height: 8%;
+    background-color: rgb(0,32,96);
+    align-items: center;
+}
+
+@media only screen and (max-width: 1205px){
+    .sidebar-container{
+        width: 8%
+    }
+
+}
+
+.sidebar-child-container{
+    height: 80%;
+    align-items: center;
+    gap: 1.5rem;
+
+}
+
+.sidebar-icons-css{
+    font-size: 1.5rem;
+}
+
+.sidebar-icons-css:hover{
+    background-color: #fff;
+    /* width: 100%; */
+    color: black !important;
+    width: 11% important;
+    padding: .5rem;
+    /* border: 1px solid black; */
+    /* box-shadow: -10px 0px 5px #fff; */
+    
+    /* border-radius: 10px; */
+    transition: all 0.3s linear;
+    transform: scale(1);
+    border-radius: 50%;
+    font-size: 1rem !important;
+    font-size: 1rem !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-left: .8rem;
+    
+ 
+ 
+
+}
+
+.header-text{
+    font-size: 1.3rem;
+}
+
+.active-class{
+    background-color: #fff;
+    /* width: 100%; */
+    color: black !important;
+    width: 11% important;
+    padding: .5rem;
+    /* border: 1px solid black; */
+    /* box-shadow: -10px 0px 5px #fff; */
+    
+    /* border-radius: 10px; */
+    transition: all 0.3s linear;
+    transform: scale(1);
+    border-radius: 50%;
+    font-size: 1rem !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-left: .8rem;
+
+}
+
+.tooltip-success {
+    --bs-tooltip-bg: red; /* or hardcode any color */
+  }
+.icon-name{
+    font-size: .5rem;
+    color: #fff;
+}
+
+/* .btns {
+    color: #0ebac5;
+    text-decoration: none;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-family: calibri;
+    border-radius: 3px;
+    border: 2px solid #0ebac5;
+    padding: 1rem 2rem;
+    box-shadow: .9px 1px 0 0 #0ebac5, 1.5px 2px 0 0 #0ebac5, 2.5px 3px 0 0 #0ebac5, 3.5px 4px 0 0 #0ebac5, 4.5px 5px 0 0 #0ebac5, 5.5px 6px 0 0 #0ebac5, 6.5px 7px 0 0 #0ebac5, 7.5px 8px 0 0 #0ebac5, 8.5px 9px 0 0 #0ebac5, 9.5px 10px 0 0 #0ebac5;
+    position: relative;
+    inset: 0;
+    cursor: pointer;
+    transform: rotateX(0), rotateY(0) rotateZ(0);
+    display: inline-block;
+    outline: 2px dashed transparent;
+    transition: all 600ms ease;
+}
+
+.btns:hover {
+    inset: 6px 0 5.5px 0;
+    transform: rotateX(5deg) rotateY(3deg) rotateZ(.25deg);
+    box-shadow: none;
+} */
+
+.body-container{
+    width: 96%;
+}
+
+.logout-icon-css{
+    align-items: center;
+}
+
+.logt-icon{
+    color: var(--integron-color-primary-s1);
+    font-size: 2.5rem;
+}
+
+.logout-header-text{
+    font-size: 1rem;
+    color: var(--integron-color-primary-s1);
+}
+
+.logout-btn-y:hover{
+    background-color: var(--integron-color-primary-s1) !important;
+    color: #fff !important;
+
+}
+
+.btn-classe {
+    outline: 0.5px solid var(--integron-color-accent);
+    width: 8rem;
+    color: var(--integron-color-accent);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+

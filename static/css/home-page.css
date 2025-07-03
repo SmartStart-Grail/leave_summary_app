@@ -1,0 +1,236 @@
+.home-page-container{
+    width: 99%;
+    height: 98%;
+    
+}
+
+.table-container-header-text{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+.header-class{
+    background: var(--integron-color-primary-s1);
+    color: #fff;
+    font-size: 0.8rem !important;}
+
+
+.table-class{
+    font-size: 0.8rem;
+    width: 100% !important;
+}
+
+
+.dt-layout-row{
+
+    font-size: 0.8rem;
+
+}
+
+.table-container-child{
+    
+    /* height: 100%; */
+    height: auto;
+}
+
+
+.home-page-container{
+    gap:2rem
+}
+
+
+
+.chart-class{
+    height: 50%;
+}
+.chart-class-child{
+    height: 98% !important;
+    width: 100% !important;
+}
+
+
+.indicator-conatiner{
+    /* gap:20px */
+    gap: 5px;
+}
+.holiday-indicator-text{
+    font-size: 0.7rem;
+}
+
+.box-indicator{
+    height: 15px;
+    width: 15px;
+    border:1px solid lightgray;
+    background-color:turquoise ;
+}
+
+.color-ind{
+    background-color:rgb(255, 70, 35) ;
+}
+
+.holiday-indicator{
+    gap:3px
+}
+
+.table-container{
+    gap:4rem
+}
+/* .table-container-parent{
+    height: 60%;
+}
+
+.holiday-nextweek-container{
+    height: 40%;
+} */
+
+.sidebar-body-container{
+    height: auto;}
+
+
+.color-absent{
+    background-color: rgba(68,14,196,0.7);
+}
+
+.color-avail{
+    background-color: rgba(248, 203, 173)
+}
+
+/*  */
+/* Added Styles from the calender.css file for buttons and filter modal */
+/*  */
+
+.filter-button-class {
+    position: relative;
+    left: calc(100% - 96px);
+    top: 5px;
+    height: 0%;
+    width: 10%;
+}
+
+
+.btn-filter {
+    color: var(--integron-color-accent);
+    outline: 0.1rem solid var(--integron-color-accent);
+    font-size: .86rem;
+    height: 33px;
+    margin-right: 1rem !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
+}
+
+.btn-filter:active,
+.btn-filter:focus {
+    color: white;
+    border-color: white; 
+    background-color: blue; 
+}
+
+.btn-filter:active i,
+.btn-filter:focus i {
+    color: white;
+}
+
+.btn-filter:focus {
+    outline: none;
+}
+
+
+.modal-header {
+    background-color: var(--integron-color-accent);
+    color: #fff;
+}
+
+
+
+.btn-close {
+    color: #fff;
+}
+
+#input-group {
+    height: 5rem;
+}
+
+
+
+.filter-name-text {
+    color: var(--integron-color-accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.filter-name {
+    box-sizing: border-box;
+}
+
+.btn-class {
+    outline: 0.5px solid var(--integron-color-accent);
+    width: 8rem;
+    color: var(--integron-color-accent);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.btn-class:hover {
+    color: var(--integron-color-accent);
+    outline: none;
+}
+
+.filter-select-container {
+    width: 26rem;
+}
+
+.filter-ass {
+    display: none;
+}
+
+.change-color {
+    color: lightgray;
+}
+
+.filter-select-parent {
+    width: 100%;
+}
+
+.filter-name {
+    width: 20%;
+}
+
+
+
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    padding: .75rem;
+    border-top: 0px solid #dee2e6 !important;
+    border-bottom-right-radius: calc(.3rem - 1px);
+    border-bottom-left-radius: calc(.3rem - 1px);
+    justify-content: center;
+}
+
+.btn-class {
+    background-color: orange;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.down-can:hover {
+    color: #fff !important;
+}
+
+.btn-filter {
+    /* margin-bottom: 1rem !important; */
+}
+
+.button-container {
+    border-bottom: 2px solid #dee2e6 !important;
+    /* border-color:antiquewhite; */
+    
+}
+
+.buttons-home {
+    margin-right: 10px;
+}

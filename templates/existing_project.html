@@ -1,0 +1,36 @@
+<form method="post"  id="existing-project-form">{%csrf_token%}
+    <div class="existing-project-name-container d-flex justify-content-between">
+        <p class="existing-project-text pt-1">Client Name</p>
+        <div class="input-container col-auto">
+            <!-- <input type="text" class="arrow form-control input-text" placeholder="Select Project" aria-label="Username" aria-describedby="basic-addon1"> -->
+            <select class="form-select " name="project_type" id="project_type" >
+                <option value="" selected disabled>Select Client</option>
+                {%for type in project_detail_data%}                                
+                <option value="{{type.id}}">{{type.project_name}}</option>
+                {%endfor%}
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="existing-project-name-container d-flex justify-content-between">
+        <p class="existing-project-text pt-1">Assigned Members</p>
+        <div class="input-container col-auto " id="member-id">
+            <input type="text" class="arrow form-control input-text" placeholder="Select Members" aria-label="Username" aria-describedby="basic-addon1">
+
+        </div>
+
+    </div>
+
+    <div class="existing-project-name-container  pt-3">
+        <div class="input-container col-auto w-100 d-flex justify-content-end">
+            <button type="submit" class="btn btn-class btn-sm  rounded-pill width-btn ">Update Client</button>
+            <button class="btn btn-class btn-sm btn-cancel rounded-pill width-btn">Delete Client</button>
+
+        </div>
+
+    </div>
+
+</form>
+

@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Leave Notification</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #9A1B15;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .content {
+            padding: 20px;
+            color: #333;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #9A1B15;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #7c1310;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #9A1B15;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Employee Leave Notification</div>
+        <div class="content">
+            <p>Hello Team,</p>
+            <p><strong>{{ obj.leave_employee.employee.first_name }} {{ obj.leave_employee.employee.last_name }}</strong> is on leave from <strong>{{ obj.leave_employee.start_date }}</strong> to <strong>{{ obj.leave_employee.end_date|date }}</strong> with the following details:</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>For more details, please visit thE below link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="http://leave-calendar-dev.escalent.co/" class="button">View Leave Calendar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Regards,<br><strong>Leave Portal Admin Team</strong></p>
+        </div>
+        <div class="footer">
+            &copy; {{ year }} Escalent. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

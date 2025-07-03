@@ -1,0 +1,127 @@
+<div class="filter-modal-class d-flex flex-column">
+                    
+    <!-- <div class="input-block-container">
+        <div aria-colcount="input-block d-flex">
+            <input type="text" class="form-control" id="input-group" placeholder="name@example.com">
+
+        </div>
+
+    </div> -->
+
+    <div class="filter-select-parent d-flex justify-content-around pt-2">
+        <div class="filter-name pt-2">
+            <p class="filter-name-text">Supervisor</p>
+        </div>
+        <div class="filter-select-container supervisor-class border mar">
+            <select class="form-control selectpicker " multiple data-live-search="true" size="5" name="members-select" id="supervisor-select"  >
+                <!-- <option value="" default>Selected Filters .....</option> -->
+                {%for data in sup_final%}
+                <option value="{{data.supervisor.id}}" selected>{{data.supervisor.first_name}} {{data.supervisor.last_name}}</option>
+                {%endfor%}
+            </select>
+
+        </div>
+
+        
+
+    </div>
+
+
+
+
+    <div class="filter-select-parent d-flex justify-content-around pt-2">
+        <div class="filter-name pt-2">
+            <p class="filter-name-text">Job Title</p>
+        </div>
+        <div class="filter-select-container title-class border mar">
+            <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="title-select"  >
+                <!-- <option value="" default>Selected Filters .....</option> -->
+                {%for data in emp_data_title%}
+                    {%if data %}
+                    <option value="{{data}}" {%for tab in title_selected%}{%if tab == data%}selected{%endif%}{%endfor%}>{{data}}</option>
+                    <!-- <option value="{{data}}" selected>{{data}}</option> -->
+                    {%endif%}
+                {%endfor%}
+            </select>
+
+        </div>
+
+        
+
+    </div>
+
+    <!-- <div class="filter-select-parent d-flex justify-content-around pt-2 ">
+        <div class="filter-name pt-2">
+            <p class="filter-name-text">Client</p>
+        </div>
+        <div class="filter-select-container project-class border mar">
+            <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="project-select" >
+                {%for data in project_data%}
+                <option value="{{data.project_name.id}}"  selected>{{data.project_name}}</option>
+                {%endfor%}
+            </select>
+
+        </div>
+
+        
+
+    </div> -->
+
+    <div class="filter-select-parent d-flex justify-content-around pt-2 ">
+        <div class="filter-name pt-2">
+            <p class="filter-name-text">Department</p>
+        </div>
+        <div class="filter-select-container department-class border mar">
+            <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="department-select" >
+                {%for data in dept_data%}
+                <option value="{{data.id}}" selected>{{data.dept_name}}</option>
+                {%endfor%}
+            </select>
+
+        </div>
+
+        
+
+    </div>
+
+    <div class="filter-select-parent d-flex justify-content-around pt-2">
+        <div class="filter-name pt-2">
+            <p class="filter-name-text">Work Location</p>
+        </div>
+        <div class="filter-select-container location-class border ">
+            <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="location-select" >
+
+                {%for data in work_location%}
+                <option value="{{data.id}}" selected >{{data.name}}</option>
+                {%endfor%}
+            </select>
+
+        </div>
+
+        
+
+    </div>
+
+
+
+
+   
+
+    <div class="filter-select-parent  d-flex justify-content-around pt-2">
+        <div class="filter-name pt-2">
+            <p class="filter-name-text">Employee name</p>
+        </div>
+        <div class="filter-select-container employee-class border ">
+            <select class="form-control selectpicker employee-select em-select" multiple data-live-search="true" size="5" name="members-select" id="emp-select"  >
+                {%for data in emp_data%}
+                <option value="{{data.id}}" selected>{{data.first_name}} {{data.last_name}}</option>
+                {%endfor%}
+            </select>
+
+        </div>
+
+        
+
+    </div>
+
+</div>

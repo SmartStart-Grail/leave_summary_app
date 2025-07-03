@@ -1,0 +1,208 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block css%}
+<!-- <link rel="stylesheet" href="{%static 'css/login.css' %}" /> -->
+<link rel="stylesheet" href="{%static 'css/calendar.css'%}"/>
+{%endblock%}
+{%block title%}
+<title>Calendar Page</title>
+{%endblock%}
+
+{%block body%}
+<div class= "calendar-container">
+    <!-- <div class="calendar-header-container ps-3">
+        <p class="calendar-header-text">Time-off Calendar</p>
+
+    </div> -->
+    <span class="pt-2 fw-bold text-danger" style="font-size: .7rem;">*The data updated on the portal is not real-time and may be up to one week old.</span>
+    <div class="calendar-child-container d-flex p-2">
+        <!-- <div class="parent-filter-btns" style="position: relative;"> -->
+        <!-- <div class="filter-button-class d-flex">
+            <button class="btn btn-md   btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-funnel"></i> Filters</button>
+        </div> -->
+        <!-- </div> -->
+        <div class="w-100 calendar-container-parents" id="calendar-container-parents">
+            <div class="filter-button-class d-flex">
+                <button class="btn btn-md   btn-filter" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-funnel"></i> Filters</button>
+            </div>
+            <div id="calendar" class="calender-class"></div>
+        </div>
+
+    </div>
+    
+</div>
+
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog   modal-lg">
+        <form method="post"   id="filter-form">{%csrf_token%}
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="apply-filter">Apply Filters</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body" id="filter-id">
+                    <input type="hidden" id="sup-select">
+                    <div class="filter-modal-class d-flex flex-column">
+                    
+
+
+                        <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Supervisor</p>
+                            </div>
+                            <div class="filter-select-container border mar">
+                                <select class="form-control selectpicker " multiple data-live-search="true" size="5" name="members-select" id="supervisor-select"  >
+                                    <!-- <option value="" default>Selected Filters .....</option> -->
+                                    {%for data in emp_supervisor%}
+                                    <option value="{{data.supervisor.id}}"  >{{data.supervisor.first_name}} {{data.supervisor.last_name}}</option>
+                                    {%endfor%}
+                                </select>
+
+                            </div>
+
+                            
+
+                        </div>
+
+                        
+
+
+                        <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Job Title</p>
+                            </div>
+                            <div class="filter-select-container border mar">
+                                <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="title-select"  >
+                                    <!-- <option value="" default>Selected Filters .....</option> -->
+                                    {%for data in job_title%}
+                                        {%if data %}
+                                        <option value="{{data}}" >{{data}}</option>
+                                        {%endif%}
+                                    {%endfor%}
+                                </select>
+
+                            </div>
+
+                            
+
+                        </div>
+
+                        <!-- <div class="filter-select-parent d-flex justify-content-around pt-2 ">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Client</p>
+                            </div>
+                            <div class="filter-select-container border mar">
+                                <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="project-select" >
+
+                                    {%for data in project_data%}
+                                    <option value="{{data.id}}"  >{{data.project_name}}</option>
+                                    {%endfor%}
+                                </select>
+
+                            </div>
+
+                            
+
+                        </div> -->
+
+                        <div class="filter-select-parent d-flex justify-content-around pt-2 ">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Department</p>
+                            </div>
+                            <div class="filter-select-container border mar">
+                                <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="department-select" >
+
+                                    {%for data in dept_data%}
+                                    <option value="{{data.id}}">{{data.dept_name}}</option>
+                                    {%endfor%}
+                                </select>
+
+                            </div>
+
+                            
+
+                        </div>
+
+                        <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2"><p class="filter-name-text">Work Location</p></div>
+                            <div class="filter-select-container border ">
+                                <select class="form-control selectpicker" multiple data-live-search="true" size="5" name="members-select" id="location-select" >
+                                    {%for data in work_location%}
+                                    <option value="{{data.name}}">{{data.name}}</option>
+                                    {%endfor%}
+                                </select>
+
+                            </div>
+
+                            
+
+                        </div>
+
+                        <!-- <div class="filter-select-parent d-flex justify-content-around pt-2">
+                            <div class="filter-name pt-2">
+                                <p class="filter-name-text">Employee name</p>
+                            </div>
+                            <div class="filter-select-container border ">
+                                <select class="form-control selectpicker employee-select em-select" multiple data-live-search="true" size="5" name="members-select" id="emp-select"  >
+                                    {%for data in emp_data%}
+                                    <option value="{{data.id}}" >{{data.first_name}} {{data.last_name}}</option>
+                                    {%endfor%}
+                                </select>
+
+                            </div>
+
+                            
+
+                        </div> -->
+                    
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                <button type="submit" class="btn btn-class btn-filt " id="ap" disabled>Apply Filter</button>
+                <!-- <button type="button" class="btn btn-class btn-filt"data-bs-dismiss="modal" id="cf">Clear Filter</button> -->
+                <button type="button" class="btn btn-class btn-filt" id="cf" disabled>Clear Filter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">File Download</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- <div class="modal-body">
+            Are you willing to download the file?
+        </div> -->
+        <div class="modal-footer">
+        <a id="downl"><button type="button" class="btn btn-class down-can" id="download-file">Download File</button></a>
+          <button type="button" class="btn btn-class down-can" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%endblock%}
+
+
+{%block js%}
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<script src='{%static "js/dist/index.global.js" %}'></script>
+
+<script src='{%static "js/calendar.js" %}'></script>
+
+<script>
+
+    
+</script>
+{%endblock%}

@@ -1,0 +1,7 @@
+<select class="form-control selectpicker border" multiple data-live-search="true" size="5" name="members-select" id="members-select" required >
+    <option value="" default>Selected Members .....</option>
+    {%for data in emp_data%}
+    <option value="{{data.id}}" {%for tab in project_data%}{%if tab.employee.id == data.id%}selected{%endif%}{%endfor%} >{{data.first_name}} {{data.last_name}}</option>
+    {%endfor%}
+
+</select>

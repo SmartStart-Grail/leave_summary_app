@@ -1,0 +1,175 @@
+.profile-body-container{
+    height: 100%;
+    width: 100%;
+    /* border:2px solid black; */
+    /* gap:2%; */
+    align-items: center;
+}
+
+.container-class{
+    width: 23%;
+    height: 80%;
+    border: 0.1px solid lightgray;
+    /* outline-color: 1px solid lightgray; */
+    border-radius: 20px;
+}
+
+
+
+.profile-image-container{
+    height: 100%;
+    /* width: 100%; */
+
+    /* border: 0.1px solid lightgray; */
+    align-items: center;
+    /* justify-content: space-evenly; */
+    /* Ask to shivansu about background-color */
+    background-color: rgb(242,242,242);
+    border-radius: 20px;
+}
+/* 
+.profile-update-container{
+    height: 40%;
+    border: 0.1px solid lightgray;
+} */
+
+.icon-profile-containter{
+    
+        font-size: 1.2rem;
+        position: relative;
+        right: 23px;
+        color: orange;
+
+        /* background: orange; */
+    /* border: 0px solid #fff; */
+    /* border-radius: 60px; */
+    /* border-radius: 60px;
+    box-shadow: 0 0 .1px #888;
+    color: #fff !important;
+    font-size: 1rem;
+    padding: 1px; */
+        
+    
+}
+
+.profile-name-text{
+    font-size: 1rem;
+    color: black;
+    font-family: "Open Sans" sans-serif;
+    font-weight: 600;
+}
+
+.other-d{
+    font-weight: normal;
+    font-size: 0.7rem;
+    font-style: italic;
+    /* letter-spacing: 1px; */
+}
+
+.container-class:hover{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.profile-header-text{
+
+    font-size: 1rem;
+    color: black;
+    font-family: "Open Sans",sans-serif;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--integron-color-button-background);
+    text-underline-offset: .5rem;
+    text-decoration-thickness: .2rem;
+
+}
+
+.title-header-text{
+    font-size: 0.8rem;
+    color: black;
+    font-family: "Open Sans",sans-serif;
+
+}
+
+.input-text{
+    font-size: 0.8rem;
+}
+
+.profile-details-parent-container{
+    height: 15%;
+}
+
+.detail-container-parent{
+    height: 63%;
+}
+
+.detail-name-container{
+    gap:3px
+}
+
+.background-class{
+    background-color: rgb(229,238,255);
+}
+
+.button-container-parent{
+    height: 22%;
+
+} 
+
+.btn-class{
+    background-color: orange;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    color: #fff;
+}
+
+input.date {
+
+    /* background-color: transparent; */
+    background-image: url('/static/images/calendar-icon.png');
+    background-position: calc(100% - 10px) 7px; 
+    background-repeat: no-repeat;
+    /* color: #fff; */
+    font-family: 'Open Sans';
+    background-size:1.3rem
+  }
+
+  input.arrow {
+
+    /* background-color: transparent; */
+    background-image: url('/static/images/down-arrow.png');
+    background-position: calc(100% - 10px) 7px; 
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: 'Open Sans';
+    background-size:1.3rem
+  }
+
+
+.f-gap{
+    gap:2rem;
+}
+
+.button-container{
+    gap:.5rem;
+}
+.btn-canl{
+    width: 90%;
+}
+
+.btn-cancel{
+    background-color: rgb(255,70,35);
+}
+
+.starting-letter-class{
+    width: 6rem;
+    height: 6rem;
+    background: rgb(143,170,220);
+    outline: 1px solid;
+}
+
+.letter-text{
+    font-size: 4rem;
+}
+
+

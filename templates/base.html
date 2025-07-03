@@ -1,0 +1,136 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{%static 'bootstrap-icons/bootstrap-icons.css'%}"/>
+    <link rel="stylesheet" href="{%static 'boxicons/css/boxicons.min.css'%}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
+  referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+    <link rel="stylesheet" href="{%static 'css/variable.css' %}" >
+    <link rel="stylesheet" href="{%static 'css/style.css'%}"/>
+
+   {%block css%} 
+   
+   {%endblock%}
+    {%block title%}
+  
+    {%endblock%}
+  </head>
+  <body> 
+
+
+  <div class="main-container d-flex flex-column">
+    <div class="header-container w-100 d-flex justify-content-between p-3">
+      <div class="header-brand-container ">
+        <img src="{%static 'images/brand.png'%}" width="25" height="25" alt="">
+      </div>
+
+
+      <div class="header-brand-container header-new-text">
+        <span class="header-text text-white">{{title_name}}</span>
+      </div>
+
+      <div class="header-username-container d-flex ">
+        <div class="username-icon-container ">
+          <i class="bx bx-user-circle text-white username-icon"></i>  
+
+        </div>
+        <div class="username-text-container d-flex">
+          <span class="username-text text-white">{%if request.user.id == 522%}{{request.user.first_name}} {%else%}{{full_name}} {%endif%}</span>
+        </div>  
+      </div>
+
+
+    </div>
+    <div class="sidebar-body-container d-flex">
+      <div class="sidebar-container">
+        <div class="sidebar-child-container d-flex flex-column mt-3">
+          <a href="{%url 'home-page'%}"><div class="home-icon-container "><i class="bi bi-house-door text-white sidebar-icons-css d-inline-block {%if home%} active-class {%endif%} " tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Home"></i></div></a>
+          <a href="{%url 'calendar'%}"><div class="calendar-icon-container"><i class="bi bi-calendar-week text-white sidebar-icons-css d-inline-block {%if time_off%} active-class {%endif%}" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar"></i></div></a>
+          {%if request.user.id == 522%}<a href="{%url 'file-upload'%}"><div class="fileupload-icon-container">  <i class="bi bi-file-earmark-arrow-up text-white sidebar-icons-css d-inline-block {%if file_upload%} active-class {%endif%}" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="File Upload"></i></div></a>{%endif%}
+          <a href="{%url 'profile'%}"><div class="setting-icon-container"><i class="bi bi-gear text-white sidebar-icons-css d-inline-block {%if setting%} active-class {%endif%}" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings"></i></div></a>
+          <div class="logout-icon-container" data-bs-toggle="modal" data-bs-target="#logout"><i class="bi bi-box-arrow-in-left text-white sidebar-icons-css d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout"></i></div>
+        </div>
+
+
+      </div>
+
+      <div class="body-container">
+        {%block body%}
+        
+        {%endblock%}
+
+        <!-- Modal -->
+<div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- <div class="modal-header" style="background-color: #fff;border: none;">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+        <div class="logout-container d-flex flex-column logout-icon-css" >
+          <div class="logout-icon">
+            <i class="bi bi-box-arrow-in-left  sidebar-icons-css d-inline-block logt-icon" ></i>
+
+          </div>
+          <div class="logout-header">
+            <p class="logout-header-text">Are you sure you want to logout from the portal?</p>
+
+          </div>
+          <div class="logout-btn-container">
+            <a href="{%url 'logouts' %}"><button class="btn btn-md btn-classe rounded-pill logout-btn-y" type="submit" id="logout-btn-yes">Yes</button></a>
+            <button type="button" class="btn btn-md btn-classe rounded-pill logout-btn-y" data-bs-dismiss="modal">No</button>
+
+          </div>
+
+        </div>
+      </div>
+      <!-- <div class="modal-footer" style="border: none;">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+      </div>
+
+    </div>
+
+
+      
+  
+  </div>
+    <!-- Optional JavaScript -->
+    
+    <script src="{%static 'js/jquery-lite.js'%}"></script>
+    <script src="{%static 'js/jquery-ajax.js'%}"></script>
+    <script src="{%static 'js/popper.min.js' %}"></script>
+    <script src="{%static 'js/base.js' %}"></script>
+    <script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {%block js%}
+
+    {%endblock%}
+    
+    <script>
+
+
+    $(document).ready(function() {
+    $("body").tooltip({ selector: '[data-bs-toggle="tooltip"]' });
+});
+
+    </script>
+   
+  </body>
+</html>

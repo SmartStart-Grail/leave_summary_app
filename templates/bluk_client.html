@@ -1,0 +1,17 @@
+<form method="post"  enctype="multipart/form-data" id="bluk-file-id">{%csrf_token%}
+    <div class="upload-header-container">
+        <label for="formFile" class="form-label upload-header-text">Bulk Client File</label>
+        <input class="form-control form-control-sm"  type="file" id="bluk_file_upload_id" name="bluk_file_upload_id">
+    </div>
+        <!-- <span class="last-file-text">Last File uploaded – </span> -->
+
+
+    <div class="file-upload-btton-container w-100 d-flex  justify-content-end h-75 align-items-end">
+        <div class=" width-class">
+            <button type="submit" class="btn btn-class btn-sm w-100  rounded-pill spinner-btn bluk-btn"  >Upload</button>
+        </div>
+        <div class="width-class">
+            <button class="btn btn-class btn-sm btn-cancel w-100  rounded-pill spinner-btn bluk-btn" disabled>Cancel</button>
+        </div>
+    </div>
+</form>
