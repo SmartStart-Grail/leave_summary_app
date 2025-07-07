@@ -45,7 +45,7 @@
 
         </div>
         <div class="username-text-container d-flex">
-          <span class="username-text text-white">{%if request.user.id == 522%}{{request.user.first_name}} {%else%}{{full_name}} {%endif%}</span>
+          <span class="username-text text-white">{%if request.user.id == 1%}{{request.user.first_name}} {%else%}{{full_name}} {%endif%}</span>
         </div>  
       </div>
 
@@ -56,7 +56,7 @@
         <div class="sidebar-child-container d-flex flex-column mt-3">
           <a href="{%url 'home-page'%}"><div class="home-icon-container "><i class="bi bi-house-door text-white sidebar-icons-css d-inline-block {%if home%} active-class {%endif%} " tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Home"></i></div></a>
           <a href="{%url 'calendar'%}"><div class="calendar-icon-container"><i class="bi bi-calendar-week text-white sidebar-icons-css d-inline-block {%if time_off%} active-class {%endif%}" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Calendar"></i></div></a>
-          {%if request.user.id == 522%}<a href="{%url 'file-upload'%}"><div class="fileupload-icon-container">  <i class="bi bi-file-earmark-arrow-up text-white sidebar-icons-css d-inline-block {%if file_upload%} active-class {%endif%}" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="File Upload"></i></div></a>{%endif%}
+          {%if request.user.id == 1%}<a href="{%url 'file-upload'%}"><div class="fileupload-icon-container">  <i class="bi bi-file-earmark-arrow-up text-white sidebar-icons-css d-inline-block {%if file_upload%} active-class {%endif%}" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="File Upload"></i></div></a>{%endif%}
           <a href="{%url 'profile'%}"><div class="setting-icon-container"><i class="bi bi-gear text-white sidebar-icons-css d-inline-block {%if setting%} active-class {%endif%}" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Settings"></i></div></a>
           <div class="logout-icon-container" data-bs-toggle="modal" data-bs-target="#logout"><i class="bi bi-box-arrow-in-left text-white sidebar-icons-css d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout"></i></div>
         </div>
